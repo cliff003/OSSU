@@ -1,0 +1,30 @@
+.navbar-brand{
+    font-family: 'Montserrat', sans-serif;
+    color:#212529;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.5;
+    margin: 0;
+    text-align: right;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+    color:#212529;
+    font-size: 1rem;
+  }
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+}
+
+footer {
+    text-align: center;
+    padding: 3px;
+    color:#212529;
+  }
+
+.credit{
+    font-size: 0.7rem;
+}

@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+<div class="container-fluid">
+<h1>ACCOUNT</h1>
+<br>
+    <div class="container-fluid">
+        <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">TOTAL PURCHASE PRICE</th>
+                <th scope="col">TOTAL MARKET VALUE</th>
+                <th scope="col">EARNINGS YIELD</th>
+                <th scope="col">CASH</th>
+                <th scope="col">TOTAL BALANCE</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{{ total.total_value | usd }}</td>
+                <td>{{ total.current_value | usd }}</td>
+                <td>{{ total.percentage }}</td>
+                <td>{{ total.cash | usd }}</td>
+                <td><b>{{ total.balance | usd }}</b></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+</div>
+<br>
+<div class="container-fluid">
+    <p class="bottom">Want to Sell?   <a class="bottom" href="/sell"> Sell Now!</a></p>
+</div>
+<br>
+<div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <h3>PORTFOLIO</h3>
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+            <div class="table-responsive">
+                <table class="table table-sm table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Symbol</th>
+                        <th scope="col">Current Price (USD)</th>
+                        <th scope="col">Shares</th>
+                        <th scope="col">Total Purchase Price</th>
+                        <th scope="col">Total Market Value</th>
+                        <th scope="col">Earnings Yield</th>
+                        <th scope="col"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for row in rows %}
+                    <tr>
+                        <td>{{ row.stock_name }}</td>
+                        <td>{{ row.stock_symbol }}</td>
+                        <td>{{ row.stock_price | usd }}</td>
+                        <td>{{ row.stock_quantity }}</td>
+                        <td>{{ row.total_value | usd}}</td>
+                        <td>{{ row.current_value | usd }}</td>
+                        <td>{{ row.percentage }}</td>
+                        <td>
+                            <a class="btn btn-secondary" href="/sell?symbol={{ row.stock_symbol }}" role="button">Sell</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            </div>
+      </div>
+    </div>
+
+{% endblock %}

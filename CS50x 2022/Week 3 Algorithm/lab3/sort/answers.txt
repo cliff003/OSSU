@@ -1,0 +1,11 @@
+sort1 uses: Bubble sort
+
+How do you know?: The sorted50000.txt was sorted very fast, so the Omega should be Omega(n). While reversed and random were sorted about same time, so the O will be O(n^2).
+
+sort2 uses: Merge sort
+
+How do you know?: The sorted, random and reversed files were sorted at same time around 0.5s. It was pretty fast, so the O should be O(nlogn) and the Omega should be Omega(nlogn).
+
+sort3 uses: Selection sort
+
+How do you know?: The sorted, random and reversed files were sorted at same time around 3.5s. It was relatively slow, so the O should be O(n^2) and the Omega should be Omega(n^2).

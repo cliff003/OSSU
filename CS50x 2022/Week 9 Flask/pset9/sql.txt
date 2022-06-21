@@ -1,0 +1,25 @@
+CREATE TABLE transactions (
+	transaction_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    stock_name text NOT NULL,
+    stock_symbol text NOT NULL,
+    stock_quantity INTEGER NOT NULL,
+    stock_price NUMERIC NOT NULL,
+    total_price NUMERIC NOT NULL,
+    UNIX_time INTEGER NOT NULL,
+    user_id INTEGER NOT NULL,
+    FOREIGN KEY (user_id)
+       REFERENCES users (id)
+);
+
+
+INSERT INTO transactions (user_id, stock_name, stock_symbol, stock_price, stock_quantity, total_price, UNIX_time) VALUES(4, "Apple Inc", "AAPL", 137.12, 1, strftime('%s','now'));
+
+ALTER TABLE transactions
+  ADD total_price NUMERIC NOT NULL;
+
+UPDATE users SET cash = ? WHERE id = ?;
+
+SELECT stock_name, stock_symbol, SUM(stock_quantity), SUM(total_price) FROM transactions WHERE user_id = 4 GROUP BY stock_symbol;
+SELECT stock_name, stock_symbol, SUM(stock_quantity), SUM(total_price) FROM transactions WHERE user_id = ? GROUP BY stock_symbol;
+
+SELECT SUM(stock_quantity) AS shares FROM transactions WHERE user_id = 4 AND stock_symbol = "GOOG";

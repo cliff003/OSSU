@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+    <div class="container-fluid">
+        <form action="/sell" method="post">
+            {% if symbol == "symbol" %}
+            <div class="mb-3" name="symbol">
+                <p>Select stock symbol</p>
+                <select class="form-select mx-auto w-auto" name="symbol">
+                    <option disabled selected>Symbol</option>
+                    {% for stock in stocks %}
+                        <option value="{{ stock }}">{{ stock }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            {% else %}
+            <div class="mb-3" name="symbol">
+                <p>Select stock symbol</p>
+                <select class="form-select mx-auto w-auto" name="symbol">
+                    <option selected>{{ symbol }}</option>
+                    {% for stock in stocks %}
+                    <option value="{{ stock }}">{{ stock }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            {% endif %}
+            <div class="mb-3">
+                <p>Enter stock shares</p>
+                <input autocomplete="off" class="form-control mx-auto w-auto" min="1" name="shares" placeholder="Shares" type="number">
+            </div>
+            <button class="btn btn-primary" type="submit">Sell</button>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $(".correct").click(function(){
+                    $(this).siblings("button").removeAttr('style');
+                    $(this).siblings('h3.question').children("p.temp").remove(".temp");
+                    $(this).css({"background-color": "green", "color": "white"});
+                    $(this).siblings('h3.question').append("<p class='temp'><b>Correct!</b></p>");
+                    $(this).siblings('h3.question').children("p.temp").css("color", "green");
+                });
+                $(".incorrect").click(function(){
+                    $(this).siblings("button").removeAttr('style');
+                    $(this).siblings('h3.question').children("p.temp").remove(".temp");
+                    $(this).css({"background-color": "red", "color": "white"});
+                    $(this).siblings('h3.question').append("<p class='temp'><b>Incorrect</b></p>");
+                    $(this).siblings('h3.question').children("p.temp").css("color", "red");
+                });
+                $(".reset").click(function(){
+                    $("button").removeAttr('style');
+                    $("input").removeAttr('style');
+                    $("p").remove(".temp");
+                });
+                $(".submit").click(function(){
+                    $(this).siblings('h3.question').children("p.temp").remove(".temp");
+                    var answer = $(this).siblings("input").val();
+                    if (answer == "Canada"){
+                        $(this).siblings('h3.question').append("<p class='temp'><b>Correct!</b></p>");
+                        $(this).siblings('h3.question').children("p.temp").css("color", "green");
+                        $(this).siblings("input").css({"background-color": "green", "color": "white"});
+                    }
+                    else {
+                        $(this).siblings('h3.question').append("<p class='temp'><b>Incorrect</b></p>");
+                        $(this).siblings('h3.question').children("p.temp").css("color", "red");
+                        $(this).siblings("input").css({"background-color": "red", "color": "white"});
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <div>
+                    <h3 class="question">
+                        1. In what year were the first Air Jordan sneakers released?
+                    </h3>
+                    <button class="incorrect" type="submit" >1994</button>
+                    <button class="incorrect" type="submit" >1971</button>
+                    <button class="incorrect" type="submit" >1981</button>
+                    <button class="correct" type="submit" >1984</button>
+                </div>
+                <div>
+                    <h3 class="question">
+                        2. What is the approximate ratio of people to sheep in New Zealand?
+                    </h3>
+                    <button class="incorrect" type="submit" >1 perosn per 3 sheep</button>
+                    <button class="incorrect" type="submit" >1 perosn per 1 sheep</button>
+                    <button class="correct" type="submit" >1 perosn per 6 sheep</button>
+                    <button class="incorrect" type="submit" >3 perosn per 1 sheep</button>
+                    <button class="incorrect" type="submit" >6 perosn per 1 sheep</button>
+                </div>
+            </div>
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3 class="question">
+                    What is the name of the world's second-largest country by total area?
+                </h3>
+                <input autocomplete="off" autofocus placeholder="Answer" type="text">
+                <input class="submit" type="submit" value="Check Answer">
+            </div>
+            <div class="section">
+                <hr>
+                <button class="reset" type="submit" >Reset</button>
+            </div>
+        </div>
+    </body>
+</html>

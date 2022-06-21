@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+<h1>Quoted</h1>
+<br>
+<div class="container-fluid">
+    <div class="table-responsive">
+    <table class="table table-hover">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Stock Name</th>
+                <th scope="col">Stock Symbol</th>
+                <th scope="col">Price (USD)</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ stock.name }}</td>
+            <td>{{ stock.symbol }}</td>
+            <td>{{ stock.price | usd }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+<br>
+<div class="container-fluid">
+    <p class="bottom">Want to buy?   <a class="bottom" href="/buy?symbol={{ stock.symbol }}"> Buy here</a></p>
+</div>
+{% endblock %}
