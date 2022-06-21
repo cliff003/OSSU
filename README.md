@@ -1,8 +1,6 @@
 # OSSU
 Study material for OSSU computer science
 
-**Curriculum version**: `8.0.0` (see [CHANGELOG](CHANGELOG.md))
-
 - [Prerequisites](#prerequisites)
 - [Intro CS](#intro-cs)
   - [Introduction to Programming](#introduction-to-programming)
