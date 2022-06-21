@@ -1,5 +1,5 @@
 # OSSU
-Study material for OSSU computer science
+Study progress for OSSU computer science
 
 - [Prerequisites](#prerequisites)
 - [Intro CS](#intro-cs)
