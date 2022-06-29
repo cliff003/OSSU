@@ -1,0 +1,20 @@
+
+black rectangle with three circles in a column
+the first circle is red 
+the second circle is yellow
+the third circle is green
+
+Constants:
+rectangle (canvas) height, width
+MTS
+circle size
+circle position (x, y)
+CTR-X (/ WIDTH 2)
+
+changing:
+circle colour
+circle solid or outline
+
+big-bang options:
+on-tick
+to-draw
